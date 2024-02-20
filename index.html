@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shutter Timer</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./js/lib/jquery-3.7.1.min.js"></script>
+    <script src="./js/lib/bootstrap.min.js"></script>
+    <script src="./js/lib/tmi.min.js"></script>
+
+    <script src="./config.js"></script>
+    <script src="./js/main.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <audio src="./sounds/beep.wav" id="beep"></audio>
+    <div class="container d-flex flex-column align-items-center pt-4">
+        <img src="./images/logo.png" alt="" id="logo">
+        <span id="title">Shutter Timer</span>
+        <div id="camera-container">
+            <img src="./images/camera.png" alt="" id="camera">
+            <img src="./images/shutter.png" alt="" id="shutter">
+        </div>
+        <div id="range-container">
+            <div id="shutter-range"></div>
+        </div>
+        <button id="shutter-button">Press</button>
+        <span id="shutter-time"></span>
+    </div>
+</body>
+</html>
