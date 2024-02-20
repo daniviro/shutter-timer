@@ -1,25 +1,17 @@
-function absorbEvent_(event) {
-    var e = event || window.event;
-    e.preventDefault && e.preventDefault();
-    e.stopPropagation && e.stopPropagation();
-    e.cancelBubble = true;
-    e.returnValue = false;
-    return false;
-  }
-
-function preventLongPressMenu(node) {
-    // node.on('touchstart', absorbEvent_);
-    node.on('touchmove', absorbEvent_);
-    // node.on('touchend', absorbEvent_);
-    node.on('touchcancel', absorbEvent_);
+let press = null;
+let release = null;
+let time = null;
+let times = [];
+const desiredTimes = [1000, 500, 250, 125, 66];
+let desiredTime = desiredTimes[4];
+function selectDesiredTime(event) {
+    desiredTime = desiredTimes[event.target.value];
+    times = [];
+    $("#time-table table tbody").empty();
 }
-
-
 $(document).ready(() => {
     // const beep = document.getElementById('beep');
-    let press = null;
-    let release = null;
-    let time = null;
+    // 1 1/2 1/4 1/8 1/15
     function onPress(event) {
         $('#shutter-time').text('');
         release = null;
@@ -42,10 +34,20 @@ $(document).ready(() => {
         }
         $('#shutter-time').text(time);
         // beep.play();
-        paintRange();
+        // paintRange();
+        addRow();
     }
     function paintRange() {
         $('#shutter-range').css('width', `${time < 1000 ? time / 10 : 100}%`);
+    }
+    function addRow() {
+        const row = $("<tr></tr>");
+        row.append($(`<td>${time}</td>`));
+        const diff = time - desiredTime;
+        const absDiff = Math.abs(time - desiredTime);
+        const className = absDiff < 10 ? 'perfect' : absDiff < 20 ? 'good' : 'bad';
+        row.append($(`<td class="${className}">${diff < 0 ? '-' : '+'}${absDiff}</td>`));
+        $('#time-table table tbody').prepend(row);
     }
     $('#shutter-button').on('touchstart', onPress);
     $('#shutter-button').on('touchend', onRelease);

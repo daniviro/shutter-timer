@@ -55,3 +55,92 @@ body {
     transform: translate(3px, 3px);
     box-shadow: 1px 1px 0px 0 #000000;
 }
+
+#time-table {
+    background-color: #c0c0c0;
+    border-radius: 10px;
+    border: 2px solid black;
+    width: 270px;
+}
+#time-table table {
+    width: 100%;
+}
+
+#time-table td, #time-table th{
+    padding: 10px;
+}
+#time-table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+#time-table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+#time-table tbody tr td{
+    background-color: white;
+}
+#time-table tbody tr:not(:last-child) {
+    border-bottom: 1px solid #c0c0c0;
+}
+#time-table th:first-child {
+    width: 70%;
+}
+
+#time-table tbody tr td:last-child.perfect {
+    color: rgb(45, 116, 45);
+}
+#time-table tbody tr td:last-child.good {
+    color: rgb(173, 173, 71)
+}
+#time-table tbody tr td:last-child.bad {
+    color: rgb(160, 47, 47)
+}
+
+#desired-shutter {
+    width: 270px;
+    margin-bottom: 30px;
+    position: relative;
+}
+#desired-shutter input {
+    width: 100%;
+}
+#desired-shutter .labels{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+#desired-shutter .labels .label {
+    transform: translateX(50%);
+}
+#shutter-time {
+    padding: 10px;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+
+input[type='range'] {
+    overflow: hidden;
+    width: 80px;
+    -webkit-appearance: none;
+    background-color: #CC333F;
+  }
+  
+  input[type='range']::-webkit-slider-thumb {
+    width: 10px;
+    -webkit-appearance: none;
+    height: 10px;
+    cursor: ew-resize;
+    background: black;
+  }
+
+  @media only screen and (max-width: 600px) {
+    #shutter-button {
+        position: fixed;
+        bottom: 1em;
+        right: 1em;
+    }
+
+  }

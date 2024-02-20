@@ -34,6 +34,23 @@
         </div>
         <button id="shutter-button">Press</button>
         <span id="shutter-time"></span>
+        <div id="desired-shutter">
+            <input type="range" name="desired-shutter" min="0" max="4" value="4" onchange="selectDesiredTime(event)">
+            <div class="labels">
+                <div class="label">1</div>
+                <div class="label">1/2</div>
+                <div class="label">1/4</div>
+                <div class="label">1/8</div>
+                <div class="label">1/15</div>
+            </div>
+        </div>
+        <div id="time-table"><table>
+            <thead>
+                <th>Time</th>
+                <th>delta</th>
+            </thead>
+            <tbody></tbody>
+        </table></div>
     </div>
 </body>
 </html>
