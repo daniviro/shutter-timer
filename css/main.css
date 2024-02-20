@@ -117,6 +117,7 @@ body {
 #shutter-time {
     padding: 10px;
     font-size: x-large;
+    height: 40px;
     font-weight: bold;
 }
 
